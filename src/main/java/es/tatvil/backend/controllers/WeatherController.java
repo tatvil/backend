@@ -19,4 +19,13 @@ public class WeatherController {
     public List<Weather> getAllWeather() {
         return weatherRepository.findAll();
     }
+    
+    @GetMapping("/filter")
+    public List<Weather> getWeatherFiltered(
+        @RequestParam String ciudad,
+        @RequestParam String desde,
+        @RequestParam String hasta
+    ) {
+        return weatherRepository.findByCiudadAndFechaBetween(ciudad, desde, hasta);
+    }
 }
