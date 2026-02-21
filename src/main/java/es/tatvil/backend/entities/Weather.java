@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "weather")
 public class Weather {
@@ -13,20 +15,24 @@ public class Weather {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @JsonProperty("dia")
     private LocalDate fecha; // Para el tipo DATE de MariaDB
     private String ciudad;
     private LocalTime amanecer; // Para el tipo TIME
     private LocalTime anochecer;
     
     @Column(name = "temp_min")
+    @JsonProperty("temp_min")
     private Integer tempMin;
     
     @Column(name = "temp_max")
+    @JsonProperty("temp_max")
     private Integer tempMax;
     
     private Integer humedad;
     
     @Column(name = "viento_velocidad")
+    @JsonProperty("viento_velocidad")
     private Integer vientoVelocidad;
     
     @Column(name = "viento_direccion")
