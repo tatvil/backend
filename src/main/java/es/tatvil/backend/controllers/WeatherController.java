@@ -5,6 +5,7 @@ import es.tatvil.backend.repositories.WeatherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -23,8 +24,8 @@ public class WeatherController {
     @GetMapping("/filter")
     public List<Weather> getWeatherFiltered(
         @RequestParam String ciudad,
-        @RequestParam String desde,
-        @RequestParam String hasta
+        @RequestParam LocalDate desde,
+        @RequestParam LocalDate hasta
     ) {
         return weatherRepository.findByCiudadAndFechaBetween(ciudad, desde, hasta);
     }
