@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "pilotos")
@@ -26,4 +27,7 @@ public class Piloto {
     private String nacionalidad;
     private Integer numero;
     private String codigo;
+    
+    @OneToMany(mappedBy = "piloto")
+    private List<PilotoEscuderia> pilotosEscuderia;
 }

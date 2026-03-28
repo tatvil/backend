@@ -1,5 +1,7 @@
 package es.tatvil.formula1.model;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,12 +21,6 @@ public class Escuderia {
     private String pais;
     private String motor;
 
+    @OneToMany(mappedBy = "escuderia")
+    private List<PilotoEscuderia> pilotosEscuderia;
 	}
-
-/*
-> DESC escuderias;
-| id     | int(11)      | NO   | PRI | NULL    | auto_increment |
-| nombre | varchar(150) | NO   |     | NULL    |                |
-| pais   | varchar(100) | YES  |     | NULL    |                |
-| motor  | varchar(100) | YES  |     | NULL    |                |
-*/
